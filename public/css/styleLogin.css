@@ -1,0 +1,23 @@
+body {
+    padding-bottom: 50px;
+}
+
+.main-container {
+    margin-top: 20px;
+}
+
+.visible {
+    visibility: visible !important;
+}
+
+.invisible {
+    visibility: hidden !important;
+}
+
+.element {
+    @include invisible(visible);
+}
+
+.element {
+    @include invisible(hidden);
+}

@@ -1,0 +1,95 @@
+<html>
+
+<head>
+
+    <title>Chatbot Atenea</title>
+    <link rel="icon" href="favicon.ico?v=1.1">
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/styleLogin.css" type="text/css">
+    <link rel="stylesheet" href="../css/styleChatbot.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js?hcode=c11e6e3cfefb406e8ce8d99fa8368d33"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js?hcode=c11e6e3cfefb406e8ce8d99fa8368d33"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js?hcode=c11e6e3cfefb406e8ce8d99fa8368d33"></script>
+    <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css?hcode=c11e6e3cfefb406e8ce8d99fa8368d33" type="text/css" rel="stylesheet">
+    <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css?hcode=c11e6e3cfefb406e8ce8d99fa8368d33" type="text/css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="primer">
+    </div>
+
+    <div id="chartContainer" style="height: 300px; width: 40%;">
+    </div>
+
+    <div id="prueba">
+    </div>
+
+    <!-- chatbot code -->
+    <mybot></mybot>
+    <!--container end-->
+
+    <!--JS-->
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="js/scriptAPIRasa.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var data = sessionStorage.getItem("username");
+            console.dir(data);
+
+            var prueba = '<h1 class="text-center">Bienvenid@ ' + data + '</h1>';
+
+            $(prueba).appendTo('#primer');
+
+            var chart = new CanvasJS.Chart("chartContainer", {
+                title: {
+                    text: "Incidencias AirBus",
+                    fontFamily: "Impact",
+                    fontWeight: "normal"
+                },
+
+                legend: {
+                    verticalAlign: "bottom",
+                    horizontalAlign: "center"
+                },
+                data: [{
+                    //startAngle: 45,
+                    type: "pie",
+                    startAngle: 45,
+                    indexLabelFontSize: 20,
+                    indexLabelFontFamily: "Garamond",
+                    indexLabelFontColor: "darkgrey",
+                    indexLabelLineColor: "darkgrey",
+                    indexLabelPlacement: "outside",
+                    showInLegend: true,
+                    dataPoints: [{
+                        y: 30,
+                        legendText: "HNC",
+                        indexLabel: "HNC"
+                    }, {
+                        y: 20,
+                        legendText: "OBS",
+                        indexLabel: "OBS"
+                    }, {
+                        y: 50,
+                        legendText: "Demat",
+                        indexLabel: "Demat"
+                    }]
+                }]
+            });
+
+            chart.render();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+{
+    "name": "08-socket-basico",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server/server.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "express-session": "^1.16.2",
+        "nodemon": "^1.19.4",
+        "npm": "^6.12.1",
+        "pg": "^7.12.0",
+        "serve-favicon": "^2.5.0",
+        "socket.io": "^2.0.4"
+    }
+}
